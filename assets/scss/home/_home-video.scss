@@ -2,7 +2,7 @@
 #home-video-2 {
   position: relative;
   min-height: 360px;
-  height: calc(100vh - 83px);
+  // height: calc(100vh - 83px);
 
   .card-recursos {
     background-color: #f6f6f6;
@@ -81,6 +81,10 @@
       }
       video {
         position: relative;
+        @media (max-width: 767px) {
+          min-height: 320px;
+          object-position: bottom left;
+        }
       }
     }
   }
@@ -111,7 +115,7 @@
   // Marcas 2
   .content-cards {
     background: black;
-    position: absolute;
+    // position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
@@ -119,7 +123,7 @@
     z-index: 20;
     margin: auto;
     @media (min-width: 768px) {
-      // position: absolute;
+      position: absolute;
       // left: 0;
       // right: 0;
       // bottom: 0;
