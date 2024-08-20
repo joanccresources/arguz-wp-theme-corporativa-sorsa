@@ -1,0 +1,43 @@
+#convocatorias {
+  // #convocatorias div:has(>.convocatorias-disponibles)
+  div:has(> .convocatorias-disponibles) {
+    @media (max-width: 767px) {
+      padding-inline: 15px;
+    }
+  }
+  .career-card {
+    .row {
+      > div:nth-last-of-type(1) {
+        @media (max-width: 767px) {
+          padding-left: 0 !important;
+        }
+      }
+    }
+
+    .artech-button {
+      background-image: none;
+      color: #ffffff;
+      fill: #ffffff;
+      border-style: solid;
+      border-width: 2px 2px 2px 2px;
+      border-color: #000000;
+      border-radius: 50rem 50rem 50rem 50rem;
+      transition: all 0.25s;
+      // padding: 10px 35px 10px 35px;
+      padding: 7.5px 25px;
+      line-height: 1.15;
+      @media (max-width: 767px) {
+        padding: 7.5px 14px;
+        width: 161px;
+      }
+      @media (min-width: 992px) {
+        width: 100%;
+      }
+      &:hover {
+        border-color: $amarillo-sorsa;
+        background: $amarillo-sorsa;
+        box-shadow: 7px 10px 15px 0px rgba(0, 0, 0, 0.26666666666666666);
+      }
+    }
+  }
+}
