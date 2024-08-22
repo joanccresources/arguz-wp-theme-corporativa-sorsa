@@ -19,8 +19,23 @@ const addButtonVerConvocatoria = () => {
   });
 };
 
+//
+const setInputYourSubject = () => {
+  // const $inputSubject = document.querySelector("#your-subject");
+  const $inputPage = document.querySelector("#your-page");
+  // if (!$title || !$inputSubject || !$inputPage) return;
+  if (!$inputPage) return;
+
+  // $inputSubject.setAttribute(
+  //   "value",
+  //   `Detalle Convocatoria - ${$title.textContent.trim()}`
+  // );
+  $inputPage.setAttribute("value", location.href);
+};
+
 addEventListener("DOMContentLoaded", () => {
   console.log("Trabaja con nosotros");
 
   addButtonVerConvocatoria();
+  setInputYourSubject();
 });

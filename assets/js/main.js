@@ -1,3 +1,13 @@
+const HOST = `https://${location.host}`;
+// https://corporativa.sorsa.pe
+
+const addRrssMenu = () => {
+  const $rrssMenu = document.querySelector("#menu-main .menu-rrss");
+  const $listMenu = document.querySelector("#menu-menu-sorsa");
+  if (!$rrssMenu || !$listMenu) return;
+  $listMenu.insertAdjacentHTML("afterend", $rrssMenu.innerHTML);
+};
+
 const addItemsHomev2Hero = () => {
   const $headerCards = document.querySelectorAll("#home-video-v2 .header-card");
   if ($headerCards.length === 0) return;
@@ -9,39 +19,39 @@ const addItemsHomev2Hero = () => {
      <a class="new-section__card" href="#0">
        <div class="new-section__card-body">
          <div class="new-section__card-figure">
-          <img src="https://corporativa.sorsa.pe/wp-content/uploads/2024/08/icon-sorsa.png" alt="Sorsa Item" class="new-section__card-img"/>
+          <img src="${HOST}/wp-content/uploads/2024/08/icon-sorsa.png" alt="Sorsa Item" class="new-section__card-img"/>
          </div>
          <p class="new-section__card-title">Suministros del Oriente</p>
          <p class="new-section__card-txt">Representantes exclusivos Valvoline.</p>
        </div>
        <div class="new-section__card-main">
-        <img src="https://corporativa.sorsa.pe/wp-content/uploads/2024/08/sorsa.png" alt="Sorsa Item" class="new-section__card-main-img" />
+        <img src="${HOST}/wp-content/uploads/2024/08/sorsa.png" alt="Sorsa Item" class="new-section__card-main-img" />
        </div>
      </a>
 
      <a class="new-section__card" href="#0">
        <div class="new-section__card-body">
          <div class="new-section__card-figure">
-          <img src="https://corporativa.sorsa.pe/wp-content/uploads/2024/08/icon-retails.png" alt="Sorsa Item" class="new-section__card-img"/>
+          <img src="${HOST}/wp-content/uploads/2024/08/icon-retails.png" alt="Sorsa Item" class="new-section__card-img"/>
          </div>
          <p class="new-section__card-title">Sorsa Retail</p>
          <p class="new-section__card-txt">Centro automotriz especializado.</p>
        </div>
        <div class="new-section__card-main">
-        <img src="https://corporativa.sorsa.pe/wp-content/uploads/2024/08/sorsa-retails.png" alt="Sorsa Item" class="new-section__card-main-img" />
+        <img src="${HOST}/wp-content/uploads/2024/08/sorsa-retails.png" alt="Sorsa Item" class="new-section__card-main-img" />
        </div>
      </a>
 
      <a class="new-section__card" href="#0">
        <div class="new-section__card-body">
          <div class="new-section__card-figure">
-          <img src="https://corporativa.sorsa.pe/wp-content/uploads/2024/08/icon-motors.png" alt="Sorsa Item" class="new-section__card-img"/>
+          <img src="${HOST}/wp-content/uploads/2024/08/icon-motors.png" alt="Sorsa Item" class="new-section__card-img"/>
          </div>
          <p class="new-section__card-title">Sorsa Motors</p>
          <p class="new-section__card-txt">Concesionaria Honda: motos y motocars.</p>
        </div>
        <div class="new-section__card-main">
-        <img src="https://corporativa.sorsa.pe/wp-content/uploads/2024/08/sorsa-motors.png" alt="Sorsa Item" class="new-section__card-main-img" />
+        <img src="${HOST}/wp-content/uploads/2024/08/sorsa-motors.png" alt="Sorsa Item" class="new-section__card-main-img" />
        </div>
      </a>
 
@@ -88,32 +98,27 @@ const addMarcasHomeHero = () => {
 const addClassStickyHeaderHome = () => {
   const $header = document.querySelector(".home header");
   if (!$header) return;
-  console.log("window.scrollY", window.scrollY);
   if (window.scrollY >= 78) {
     $header.classList.add("v-sticky");
     const $img = $header.querySelector(".logo-pc img");
-    console.log("if $img", $img);
     if (!$img) return;
     $img.setAttribute(
       "src",
-      "https://corporativa.sorsa.pe/wp-content/uploads/2024/03/logo-footer.png"
+      `${HOST}/wp-content/uploads/2024/03/logo-footer.png`
     );
   } else {
     $header.classList.remove("v-sticky");
     const $img = $header.querySelector(".logo-pc img");
-    console.log("else $img", $img);
     if (!$img) return;
-    $img.setAttribute(
-      "src",
-      "https://corporativa.sorsa.pe/wp-content/uploads/2024/08/logo.png"
-    );
+    $img.setAttribute("src", `${HOST}/wp-content/uploads/2024/08/logo.png`);
   }
 };
 
 addEventListener("DOMContentLoaded", () => {
-  const $rrssMenu = document.querySelector("#menu-main .menu-rrss");
-  const $listMenu = document.querySelector("#menu-menu-sorsa");
-  $listMenu.insertAdjacentHTML("afterend", $rrssMenu.innerHTML);
+  // const $rrssMenu = document.querySelector("#menu-main .menu-rrss");
+  // const $listMenu = document.querySelector("#menu-menu-sorsa");
+  // $listMenu.insertAdjacentHTML("afterend", $rrssMenu.innerHTML);
+  addRrssMenu();
 
   addItemsHomev2Hero();
 });
