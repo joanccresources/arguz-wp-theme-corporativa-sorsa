@@ -33,4 +33,46 @@ body.home {
       background-color: $azul-sorsa;
     }
   }
+
+  .menu-item {
+    .o-hidden.cursor-pointer {
+      a {
+        &::before {
+          background-color: #fff !important;
+          opacity: 0.4;
+          @media (max-width: 767px) {
+            display: none !important;
+          }
+        }
+        &::after {
+          background-color: #fff !important;
+          opacity: 0.4;
+          @media (max-width: 767px) {
+            display: none !important;
+          }
+        }
+      }
+    }
+    .sub-menu {
+      li.menu-item {
+        &::after {
+          position: absolute;
+          content: "";
+          left: 0;
+          top: 50%;
+          width: 20px;
+          height: 1px;
+          background-color: #fff;
+          opacity: 0.4;
+        }
+      }
+    }
+
+    &.sub-menu-open {
+      &::after {
+        // top: 42px !important;
+        display: none !important;
+      }
+    }
+  }
 }

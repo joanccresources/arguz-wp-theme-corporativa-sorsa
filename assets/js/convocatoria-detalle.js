@@ -56,6 +56,12 @@ const translateTextFormSubmit = () => {
   $form.addEventListener("submit", (event) => {
     setTimeout(() => {
       changeText($form);
+    }, 200);
+    setTimeout(() => {
+      changeText($form);
+    }, 500);
+    setTimeout(() => {
+      changeText($form);
     }, 1000);
   });
 
