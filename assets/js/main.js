@@ -16,7 +16,7 @@ const addItemsHomev2Hero = () => {
 <div class="cont cont-new">
     <div class="new-section">
 
-     <a class="new-section__card" href="#0">
+     <a class="new-section__card" href="https://suministros.sorsa.pe/" target="_blank">
        <div class="new-section__card-body">
          <div class="new-section__card-figure">
           <img src="${HOST}/wp-content/uploads/2024/08/icon-sorsa.png" alt="Sorsa Item" class="new-section__card-img"/>
