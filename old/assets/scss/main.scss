@@ -1,0 +1,22 @@
+@import "variables";
+
+@import "header";
+@import "menu";
+
+// GLOBAL
+@import "global";
+
+// PAGES
+// Page Home
+@import "home/home";
+
+// Page Nosotros
+@import "nosotros/nosotros";
+
+// Page Trabaja con Nosotros
+@import "trabaja/trabaja";
+
+// Page Compromiso con el planeta
+@import "compromiso/compromiso";
+
+@import "_utilities.scss";
