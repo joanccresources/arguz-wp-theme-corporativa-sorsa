@@ -189,7 +189,6 @@ add_shortcode('home_blog_retail', 'shortcode_home_blog_retail');
 
 function shortcode_home_blog_retail($atts)
 {
-  // Iniciar el buffer de salida
   ob_start();
 
   echo '<div><div class="row"><div class="col-12">';
@@ -364,52 +363,64 @@ function shortcode_home_blog_retail($atts)
       }      
 
       const getNoticias = async()=> {
-        // Las 6 primeras noticias
-        const URL = 'https://retail.sorsa.pe/wp-json/wp/v2/posts?_embed&per_page=6&page=1';
+        // Las 3 primeras noticias
+        const URLS = [
+          'https://retail.sorsa.pe/wp-json/wp/v2/posts?_embed&per_page=3&page=1',
+          'https://concesionariahonda.sorsa.pe/wp-json/wp/v2/posts?_embed&per_page=3&page=1'
+        ];
         try{
-          const resp = await fetch(URL);
-          const dataJson = await resp.json();
+          const promiseResp = URLS.map(url => fetch(url));
+          const responses = await Promise.all(promiseResp);
+
+          responses.forEach(resp => {
+            if(!resp.ok) throw new Error('Error en la petición');
+          });
+
+          const dataJson = responses.map(resp => resp.json());
+
+          const [dataRetail,dataHonda] = await Promise.all(dataJson);
+          const newData = [...dataRetail,...dataHonda];
           
-          const data = dataJson.map(item => {
+          const data = newData.map(item => {
             return {
               id: item.id,
+              date: item.date,
               img: item._embedded['wp:featuredmedia'][0].source_url,
               title: item.title.rendered,
               slug: item.link
             }
-          })
-          console.log(data);
+          });
 
+          // Ordenar por fecha (más reciente primero)
+          const dataOrdenada = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+          
           let htmlSwiperSlides = data.map((noticia)=> `
-              <div class='swiper-slide'>
-                <div class='card-productos px-3 px-md-0'>
-                  <a class='card-productos__figure' href='\${noticia.slug}' target='_blank'>
-                    <img decoding='async' src='\${noticia.img}' class='card-productos__img' />                    
+            <div class='swiper-slide'>
+              <div class='card-productos px-3 px-md-0'>
+                <a class='card-productos__figure' href='\${noticia.slug}' target='_blank'>
+                  <img decoding='async' src='\${noticia.img}' class='card-productos__img' />                    
+                </a>
+                <a href='\${noticia.slug}' target='_blank' class='card-productos__title d-inline-block mt-3'>\${noticia.title}</a>
+                <div class=''>
+                  <a href='\${noticia.slug}' target='_blank' class='more-link'>
+                    <span class='txt'>Leer más</span>
+                    <img decoding='async' class='arrow' src='https://artech.themescamp.com/digital-marketing/wp-content/uploads/sites/3/2024/02/arrow.svg' alt=''>
                   </a>
-                  <a href='\${noticia.slug}' target='_blank' class='card-productos__title d-inline-block mt-3'>\${noticia.title}</a>
-
-                  <div class=''>
-                    <a href='\${noticia.slug}' target='_blank' class='more-link'>
-                      <span class='txt'>Leer más</span>
-                      <img decoding='async' class='arrow' src='https://artech.themescamp.com/digital-marketing/wp-content/uploads/sites/3/2024/02/arrow.svg' alt=''>
-                    </a>
-                  </div>
                 </div>
               </div>
+            </div>
             `
           ).join('');
-
           const container = document.querySelector('#noticias-swiper-wrapper');
-          container.innerHTML = htmlSwiperSlides;
-
+          container.innerHTML = htmlSwiperSlides;          
         }catch(error){
           console.log('Error: ',error);
         }
       }
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener('DOMContentLoaded', () => { 
         console.log('DOMContentLoaded');
         getNoticias()
-          .then(()=> {
+          .then(()=> {            
             addSliderSwiper();
           }).catch(console.log);
       });
