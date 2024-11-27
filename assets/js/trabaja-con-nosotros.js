@@ -7,7 +7,7 @@ const addButtonVerConvocatoria = () => {
   if ($lastColumn.length === 0) return;
 
   const htmlButton = `
-    <div class="artech-button  fade-border-effect">
+    <div class="artech-button fade-border-effect">
       <span class="artech-button-content-wrapper">
         <span class="artech-button-text">Ver<br/>convocatoria</span>
         <img decoding="async" src=https://${host}/wp-content/uploads/2024/02/arrow_wh.svg" alt="Arrow" class="image">

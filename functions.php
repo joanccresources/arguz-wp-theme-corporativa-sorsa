@@ -214,26 +214,14 @@ function wpc_elementor_shortcode_trabaja_convocatorias($atts)
       $output .= '</div>';
 
       $output .= '<div class="col-lg-2 col-6">';
-      $output .= '<div class="artech-button fade-border-effect">';
-      $output .= '<span class="artech-button-content-wrapper">';
-      $output .= '<span class="artech-button-text">Ver<br>convocatoria</span>';
-      $output .= '<img decoding="async" src="https://corporativa.sorsa.pe/wp-content/uploads/2024/02/arrow_wh.svg&quot;" alt="Arrow" class="image">';
-      $output .= '</span>';
-      $output .= '</div>';
-      // $output .= '<div class="arrow text-lg-end">';
-      // $output .= '<img decoding="async" src="https://artech.themescamp.com/inner-pages/wp-content/uploads/sites/11/2024/03/arrow.svg" alt="" />';
-      // $output .= '</div>';
+      $output .= '  <div class="artech-button fade-border-effect">';
+      $output .= '    <span class="artech-button-content-wrapper">';
+      $output .= '      <span class="artech-button-text">Ber_<br>convocatoria</span>';
+      $output .= '      <img decoding="async" src="https://sorsa.pe/wp-content/uploads/2024/02/arrow_wh.svg&quot;" alt="Arrow" class="image">';
+      $output .= '    </span>';
+      $output .= '  </div>';
       $output .= '</div>';
 
-      // $output .= '';
-      // $output .= '<div class="convocatoria-item">';
-      // $output .= '<h2>' . get_the_title() . '</h2>';
-
-      // Ejemplo de cómo mostrar un campo personalizado de ACF
-      // $campo_personalizado = get_field('nombre_del_campo');
-      // if ($campo_personalizado) :
-      //   $output .= '<p>' . esc_html($campo_personalizado) . '</p>';
-      // endif;
       $output .= '</div>';
       $output .= '</a>';
     endwhile;

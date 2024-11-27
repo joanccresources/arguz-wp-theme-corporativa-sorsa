@@ -1,5 +1,5 @@
 const HOST = `https://${location.host}`;
-// https://corporativa.sorsa.pe
+// https://sorsa.pe
 
 const addRrssMenu = () => {
   const $rrssMenu = document.querySelector("#menu-main .menu-rrss");
