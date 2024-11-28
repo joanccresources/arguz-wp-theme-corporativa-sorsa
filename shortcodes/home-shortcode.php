@@ -381,6 +381,11 @@ function shortcode_home_blog_retail($atts)
           const [dataRetail,dataHonda] = await Promise.all(dataJson);
           const newData = [...dataRetail,...dataHonda];
           
+          console.log(newData);
+          console.log(newData.length===0);
+          if(newData.length===0) return;
+          console.log({newData});
+          
           const data = newData.map(item => {
             return {
               id: item.id,
@@ -395,7 +400,7 @@ function shortcode_home_blog_retail($atts)
           const dataOrdenada = data.sort((a, b) => new Date(b.date) - new Date(a.date));
           
           let htmlSwiperSlides = data.map((noticia)=> `
-            <div class='swiper-slide'>
+            <div class='swiper-slide' data-sorsa-noticias>
               <div class='card-productos px-3 px-md-0'>
                 <a class='card-productos__figure' href='\${noticia.slug}' target='_blank'>
                   <img decoding='async' src='\${noticia.img}' class='card-productos__img' />                    
@@ -418,7 +423,7 @@ function shortcode_home_blog_retail($atts)
         }
       }
       document.addEventListener('DOMContentLoaded', () => { 
-        console.log('DOMContentLoaded');
+        console.log('DOMContentLoaded 1');
         getNoticias()
           .then(()=> {            
             addSliderSwiper();

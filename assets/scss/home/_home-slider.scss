@@ -13,8 +13,127 @@
   //     height: 100vh;
   //   }
   // }
-
   // .swiper-content {
-
   // }
+  // calc(100vh + -78px + -78px)
+  position: relative;
+  .main-sliders {
+    // height: calc(100vh + -78px + -78px);
+    height: 100vh;
+    max-height: 100vh;
+    .elementor-swiper {
+      height: 100%;
+      > .elementor-main-swiper.swiper {
+        height: 100%;
+      }
+    }
+    .elementor-slide-heading {
+      font-size: 42px;
+    }
+
+    // @media (max-width: 1399px) {
+    @media (max-width: 1024px) {
+      height: calc(100vh + -78px + -78px);
+    }
+    @media (max-width: 767px) {
+      height: calc(100vh - 78px - 78px + -160px);
+    }
+  }
+
+  .card-recursos {
+    background-color: #f6f6f6;
+    flex-direction: row;
+    border-right: 1px solid #00000012;
+    transition: all 0.35s;
+    &__content {
+      padding-top: 30px;
+      padding-left: 30px;
+      padding-right: 20px;
+      @media (max-width: 767px) {
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      @media (min-width: 768px) and (max-width: 991px) {
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 10px;
+      }
+    }
+    &__logo {
+      width: 75px;
+      img {
+        // @media (max-width: 991px) {
+        height: 58px;
+        width: auto;
+        // }
+      }
+    }
+    &__title {
+      // margin-top: 24px;
+      margin-top: 16px;
+      [class*="heading-title"] {
+        @media (max-width: 991px) {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 991px) {
+        margin-top: 12px;
+      }
+    }
+    &__txt {
+      color: #999999;
+    }
+    &__img {
+      overflow: hidden;
+      img {
+        transition: all 0.35s;
+      }
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+    &:hover {
+      opacity: 0.75;
+      .card-recursos__img img {
+        transform: scale(1.25);
+      }
+    }
+    &:nth-last-of-type(1) {
+      border-right: none;
+    }
+
+    @media (min-width: 768px) {
+      // height: 33.3333%;
+      height: 100%;
+    }
+  }
+
+  // Marcas 2
+  .content-cards {
+    background: black;
+    // position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 20;
+    margin: auto;
+    @media (min-width: 768px) {
+      position: absolute;
+      // left: 0;
+      // right: 0;
+      // bottom: 0;
+      // width: 100%;
+      // z-index: 999;
+      // margin: auto;
+    }
+    @media (min-width: 1200px) {
+      height: 215px;
+      width: 992px;
+    }
+    @media (min-width: 1400px) {
+      width: 1200px;
+    }
+  }
 }

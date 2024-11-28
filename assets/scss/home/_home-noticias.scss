@@ -3,4 +3,8 @@
   {
     pointer-events: none;
   }
+
+  :not(:has([data-sorsa-noticias])) {
+    display: none !important;
+  }
 }

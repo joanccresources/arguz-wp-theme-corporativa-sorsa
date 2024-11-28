@@ -232,7 +232,7 @@ function wpc_elementor_shortcode_trabaja_convocatorias($atts)
     // Restablece la consulta global post data
     wp_reset_postdata();
   else :
-    $output .= '<p>No se encontraron convocatorias.</p>';
+    $output .= '<p class="mb-0 py-4">Por ahora, no hay convocatorias disponibles, pero no te preocupes, ¡déjanos tus datos abajo y te avisaremos tan pronto haya novedades!</p>';
   endif;
 
   // Retorna el contenido generado para ser mostrado en el shortcode
