@@ -366,7 +366,7 @@ function shortcode_home_blog_retail($atts)
         // Las 3 primeras noticias
         const URLS = [
           'https://retail.sorsa.pe/wp-json/wp/v2/posts?_embed&per_page=3&page=1',
-          'https://concesionariahonda.sorsa.pe/wp-json/wp/v2/posts?_embed&per_page=3&page=1'
+          'https://honda.sorsa.pe/wp-json/wp/v2/posts?_embed&per_page=3&page=1'
         ];
         try{
           const promiseResp = URLS.map(url => fetch(url));

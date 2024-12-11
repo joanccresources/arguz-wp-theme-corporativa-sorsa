@@ -4,7 +4,7 @@
     pointer-events: none;
   }
 
-  :not(:has([data-sorsa-noticias])) {
-    display: none !important;
+  &:not(:has([data-sorsa-noticias])) {
+    display: none !important; 
   }
 }

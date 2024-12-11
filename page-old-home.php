@@ -205,7 +205,7 @@
             <div class="btn-group">
               <a target="_blank" href="https://wa.me/message/VLUMY5TRVRS6F1" class="btn">Comprar por WhatsApp</a>
               <a target="_blank"
-                href="https://concesionariahonda.sorsa.pe/terminos-y-condiciones-de-participacion-en-la-rifa-tu-moto-por-10-soles/"
+                href="https://honda.sorsa.pe/terminos-y-condiciones-de-participacion-en-la-rifa-tu-moto-por-10-soles/"
                 class="btn style-border">Ver términos y condiciones</a>
             </div>
           </div>
